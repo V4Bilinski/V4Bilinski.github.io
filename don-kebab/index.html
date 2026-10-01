@@ -655,6 +655,24 @@ body:not(.js) .nojs-hint{display:flex}
 .s .lp-addr{margin-top:10px}
 .s .dash-note{margin-top:8px}
 
+/* ---------- celular: aviso para girar e modo vertical (letterbox) ---------- */
+.orientation-prompt{background:#0b0b0b}
+.rotate-card{max-width:320px;gap:14px}
+.rotate-logo{display:block;width:120px;height:82px;background:var(--dk) center/contain no-repeat;margin-bottom:6px}
+.rotate-card b{font:600 28px/1.1 var(--body);color:#fff}
+.rotate-card p{font-size:15px;line-height:1.5;color:#c9c1b4;margin:0}
+.rotate-card .keep-btn{margin-top:6px;border-color:var(--orange);color:var(--orange);font-weight:600}
+.rotate-card .swipe-note{font-size:12px;color:#8f8678;max-width:260px;line-height:1.4}
+.phone-rotate{position:relative;width:46px;height:78px;border:3px solid var(--orange);border-radius:10px;margin:18px 0 6px;animation:rotatePhone 2.6s ease-in-out infinite;box-shadow:0 0 0 0 rgba(255,106,28,.35)}
+.phone-rotate i{position:absolute;left:50%;bottom:5px;width:14px;height:3px;border-radius:2px;background:var(--orange);transform:translateX(-50%)}
+@keyframes rotatePhone{0%,18%{transform:rotate(0)}48%,82%{transform:rotate(90deg)}100%{transform:rotate(0)}}
+.orientation-prompt.dismissed{display:none!important}
+.portrait-bar{display:none;position:fixed;left:0;right:0;bottom:14px;z-index:150;justify-content:center;pointer-events:none}
+.portrait-bar span{font:500 11px/1.3 var(--body);letter-spacing:.03em;color:rgba(255,255,255,.72);background:rgba(20,20,20,.85);border:1px solid rgba(255,255,255,.12);padding:8px 12px;border-radius:999px;text-align:center;max-width:86vw}
+@media(orientation:portrait) and (max-width:900px){.portrait-bar{display:flex}.nav{transform:translateX(-50%) scale(1.6);transform-origin:center bottom}}
+@media(orientation:portrait) and (max-width:900px){.orientation-prompt:not(.dismissed){display:flex}}
+@media print{.portrait-bar{display:none!important}}
+
 </style>
 </head>
 <body>
@@ -1079,7 +1097,7 @@ body:not(.js) .nojs-hint{display:flex}
 </section>
 
 <!-- 14 | INVESTIMENTO -->
-<section class="slide s invest" data-source="Estrutura de investimento conforme a Proposta Estratégica aprovada: fee mensal da V4 separado da verba de mídia; prazo inicial de 3 meses. Valores e condições a confirmar na versão comercial final. Fotografia: acervo da marca.">
+<section class="slide s invest" data-source="Valores e condições informados pela V4 Bilinski: fee mensal de R$ 3.500, verba de mídia de R$ 2.500 por mês (paga às plataformas), contrato de 6 meses, pagamento após 7 dias do início e início em até 24 horas após o start. Fotografia: acervo da marca.">
   <div class="s-photo" style="background-image:var(--falafel)" role="img" aria-label="Falafel Don Kebab"></div>
   <div class="s-inner">
     <div class="glass panel-l reveal">
@@ -1087,10 +1105,11 @@ body:not(.js) .nojs-hint{display:flex}
       <h2 class="title">Investimento.</h2>
       <p class="intro">Fee da V4 e verba de mídia, separados. A verba é paga diretamente às plataformas.</p>
       <div class="inv-rows">
-        <div class="inv base"><i class="badge"><svg class="ic" aria-hidden="true"><use href="#i-compass"></use></svg></i><div><b>Fee mensal V4</b><span>Estratégia e gestão, Social &amp; Design, Mídia e Web.</span></div><div class="amt"><strong>R$ —</strong><small>por mês <em class="tbd">a definir</em></small></div></div>
-        <div class="inv"><i class="badge"><svg class="ic" aria-hidden="true"><use href="#i-target"></use></svg></i><div><b>Verba de mídia recomendada</b><span>Meta Ads e Google Ads, pagos às plataformas.</span></div><div class="amt"><strong>R$ —</strong><small>por mês <em class="tbd">a definir</em></small></div></div>
+        <div class="inv"><i class="badge"><svg class="ic" aria-hidden="true"><use href="#i-compass"></use></svg></i><div><b>Fee mensal V4</b><span>Estratégia e gestão, Social &amp; Design, Mídia e Web.</span></div><div class="amt"><strong>R$ 3.500</strong><small>por mês</small></div></div>
+        <div class="inv"><i class="badge"><svg class="ic" aria-hidden="true"><use href="#i-target"></use></svg></i><div><b>Verba de mídia</b><span>Meta Ads e Google Ads, pagos às plataformas.</span></div><div class="amt"><strong>R$ 2.500</strong><small>por mês</small></div></div>
+        <div class="inv base"><i class="badge"><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg></i><div><b>Investimento mensal total</b><span>Fee da V4 mais verba de mídia.</span></div><div class="amt"><strong>R$ 6.000</strong><small>por mês</small></div></div>
       </div>
-      <div class="terms-row"><div><b>Prazo inicial</b><span>3 meses</span></div><div><b>Pagamento</b><span>A definir</span></div><div><b>Início</b><span>Após a aprovação</span></div></div>
+      <div class="terms-row"><div><b>Contrato</b><span>6 meses</span></div><div><b>Pagamento</b><span>Após 7 dias do início</span></div><div><b>Início</b><span>Em até 24h após o start</span></div></div>
     </div>
   </div>
   <footer class="s-footer"><span>Don Kebab · Proposta estratégica</span><span class="sig" role="img" aria-label="Bilinski e Co"></span><span class="page">14</span></footer>
@@ -1140,6 +1159,7 @@ body:not(.js) .nojs-hint{display:flex}
           <li>Mapa esquemático: posições aproximadas de bairros, vias e rios; distâncias em linha reta a partir da unidade. A segmentação real é feita por raio na própria plataforma de anúncios.</li>
           <li>Perfil @donkebab_sjc: captura de tela fornecida pelo cliente (69 posts, 5.315 seguidores, 77 seguindo, horários de funcionamento).</li>
           <li>Perfil do bairro Vila Ema como referência gastronômica da região central: guias imobiliários de São José dos Campos.</li>
+          <li>Investimento: valores e condições informados pela V4 Bilinski (fee R$ 3.500/mês; mídia R$ 2.500/mês; contrato de 6 meses; pagamento após 7 dias do início; início em até 24 horas após o start). O plano de 90 dias é a primeira fase dentro do contrato.</li>
           <li>Fotografias e logotipo: acervo da marca. Simulações de anúncio, perfil, busca, painel e landing page são ilustrativas.</li>
         </ul>
       </aside>
@@ -1165,7 +1185,8 @@ body:not(.js) .nojs-hint{display:flex}
       </div>
     </main>
   </div>
-<div class="orientation-prompt" id="rotateNote" role="dialog" aria-modal="true" aria-label="Orientação recomendada"><input type="checkbox" id="keepPortraitCheck" class="keep-check" aria-hidden="true" tabindex="-1"><div class="rotate-card"><span class="phone-rotate" aria-hidden="true"></span><b>Vire o celular</b><p>Esta proposta fica mais nítida na horizontal.</p><label for="keepPortraitCheck" id="keepPortrait" class="keep-btn" role="button" tabindex="0">Ver assim mesmo</label><p class="nojs-note">Se nada acontecer ao tocar, abra este arquivo no Safari ou no Chrome.</p></div></div>
+<div class="orientation-prompt" id="rotateNote" role="dialog" aria-modal="true" aria-label="Gire o celular"><input type="checkbox" id="keepPortraitCheck" class="keep-check" aria-hidden="true" tabindex="-1"><div class="rotate-card"><span class="rotate-logo" role="img" aria-label="Don Kebab"></span><span class="phone-rotate" aria-hidden="true"><i></i></span><b>Gire o celular</b><p>Esta proposta foi feita para a tela na horizontal, como uma apresentação.</p><label for="keepPortraitCheck" id="keepPortrait" class="keep-btn" role="button" tabindex="0">Ver assim mesmo</label><p class="swipe-note">Na vertical, deslize para o lado para passar as telas.</p><p class="nojs-note">Se nada acontecer ao tocar, abra este arquivo no Safari ou no Chrome.</p></div></div>
+<div class="portrait-bar" id="portraitBar" aria-hidden="true"><span>Deslize para o lado para avançar · gire o celular para tela cheia</span></div>
 <div class="nojs-hint" aria-hidden="true"><span>Arraste para o lado para passar de slide · abra no Safari ou Chrome para usar as simulações</span></div>
 <script>
 (() => {
@@ -1220,7 +1241,7 @@ body:not(.js) .nojs-hint{display:flex}
               "Três camadas de medição. O cruzamento com PDV, vendas e delivery depende do que a operação conseguir compartilhar.",
               "Mostre a linha do tempo e depois alterne para o playbook, semana a semana.",
               "A taça enche em três tempos: presença, máquina, inteligência. Noventa dias são infraestrutura, não o fim.",
-              "Fee e verba de mídia separados. Confirme valores e condições antes de apresentar esta tela ao cliente.",
+              "Fee de R$ 3.500 e verba de mídia de R$ 2.500 por mês, separados: R$ 6.000 no total. Contrato de 6 meses, pagamento após 7 dias do início e começo em até 24 horas após o start.",
               "Feche com a frase: primeiro o entorno, depois a escala. Próximo passo: aprovar o investimento e abrir a fase Estruturar."
       ];
 
@@ -1678,7 +1699,7 @@ body:not(.js) .nojs-hint{display:flex}
       let touchOnControl = false;
       document.addEventListener('touchstart', event => {
         touchStartX = event.changedTouches[0].clientX;
-        touchOnControl = !!event.target.closest?.('[data-funnel], #proposalConfigurator');
+        touchOnControl = !!event.target.closest?.('[data-funnel], [data-no-swipe], #proposalConfigurator, .orientation-prompt');
       }, {passive:true});
       document.addEventListener('touchend', event => {
         if (touchOnControl || editMode || modal.classList.contains('open') || passwordModal.classList.contains('open') || sourceDrawer.classList.contains('open') || presenterDrawer.classList.contains('open')) return;
@@ -1691,6 +1712,18 @@ body:not(.js) .nojs-hint{display:flex}
       fitDeck();
       show(initialIndex, false);
     })();
+</script>
+<script id="dk-mobile">(() => {
+  'use strict';
+  const note = document.getElementById('rotateNote');
+  const keep = document.getElementById('keepPortrait');
+  const check = document.getElementById('keepPortraitCheck');
+  if (!note || !keep) return;
+  const dismiss = () => { note.classList.add('dismissed'); if (check) check.checked = true; };
+  keep.addEventListener('click', dismiss);
+  keep.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); dismiss(); } });
+  check?.addEventListener('change', () => { if (check.checked) note.classList.add('dismissed'); });
+})();
 </script>
 <script id="dk-geo">(() => {
   'use strict';
